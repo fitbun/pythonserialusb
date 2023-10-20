@@ -165,9 +165,11 @@ class Mywindow(QtWidgets.QMainWindow, Ui_MainWindow):
                 if self.checkBox_2.isChecked():
                     window.Set_Display_Data(bytes(Data_Need_Send, encoding="utf-8"))
             else:
+                self.SendData_Timer.setChecked(False)
                 QMessageBox.critical(self, '串口错误', '请先打开串口！')
                 print("请先打开串口")
         except:
+            self.SendData_Timer.setChecked(False)
             QMessageBox.critical(self, '串口错误', '请先打开串口！')
             print("请先打开串口")
 
